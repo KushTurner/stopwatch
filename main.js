@@ -52,17 +52,20 @@ function changeText() {
 
 started.onclick = function() {
     newStopwatch.startButton()
+    started.disabled = true
     interval = setInterval(changeText, 1000)
 }
 
 stopped.onclick = function() {
     newStopwatch.stopButton()
+    started.disabled = false
     clearInterval(interval)
 }
 
 reset.onclick = function() {
     if (newStopwatch.timerOn) {
         newStopwatch.stopButton()
+        started.disabled = false
         clearInterval(interval)
     }
     newStopwatch.second = 0
